@@ -1,49 +1,104 @@
 .navbar {
     height: 70px;
-    background: rgba(17, 17, 26, 0.95);
-    border-bottom: 1px solid #292936;
+
+    background: var(--card-background);
+
+    border-bottom: 1px solid var(--border);
+
     display: flex;
+
     align-items: center;
     justify-content: space-between;
+
     padding: 0 7%;
+
     position: sticky;
+
     top: 0;
+
     z-index: 1000;
+
     backdrop-filter: blur(10px);
+
+    transition:
+        background 0.3s ease,
+        border 0.3s ease;
 }
 
 .logo {
     font-family: Georgia, serif;
+
     font-size: 1.7rem;
+
     font-weight: bold;
-    color: #fff;
+
+    color: var(--foreground);
+
+    text-decoration: none;
 }
 
 .logo span {
-    color: #d4af37;
+    color: var(--gold);
 }
 
 .links {
     display: flex;
+
+    align-items: center;
+
     gap: 30px;
 }
 
 .links a {
-    color: #ddd;
+    color: var(--text-secondary);
+
+    text-decoration: none;
+
     transition: 0.3s;
 }
 
 .links a:hover {
-    color: #d4af37;
+    color: var(--gold);
 }
 
 .menuButton {
     display: none;
+
     background: none;
+
     border: none;
-    color: white;
+
+    color: var(--foreground);
+
     font-size: 28px;
+
     cursor: pointer;
+}
+
+
+
+.links button {
+    border: 1px solid var(--border);
+
+    background: var(--card-background);
+
+    color: var(--foreground);
+
+    padding: 8px 12px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-size: 0.9rem;
+
+    transition: 0.3s;
+}
+
+.links button:hover {
+    border-color: var(--gold);
+
+    color: var(--gold);
 }
 
 @media (max-width: 650px) {
@@ -53,15 +108,26 @@
 
     .links {
         display: none;
+
         position: absolute;
+
         top: 70px;
+
         left: 0;
+
         width: 100%;
-        background: #11111a;
+
+        background: var(--card-background);
+
         padding: 20px;
+
         flex-direction: column;
+
         text-align: center;
+
         gap: 16px;
+
+        border-bottom: 1px solid var(--border);
     }
 
     .links.open {

@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useEffect, useState } from 'react';
@@ -16,17 +17,23 @@ export default function Personagens() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
 
+    // 📖 Carregar personagens da API
     useEffect(() => {
         async function getCharacters() {
             try {
                 setLoading(true);
                 setError('');
 
-                const response = await axios.get('https://hp-api.onrender.com/api/characters');
+                const response = await axios.get(
+                    'https://hp-api.onrender.com/api/characters'
+                );
+
                 setCharacters(response.data);
             } catch (error) {
                 console.error(error);
-                setError('Não foi possível carregar os personagens. Tente novamente.');
+                setError(
+                    'Não foi possível carregar os personagens. Tente novamente.'
+                );
             } finally {
                 setLoading(false);
             }
@@ -35,17 +42,65 @@ export default function Personagens() {
         getCharacters();
     }, []);
 
+    // 💾 Carregar favoritos do SessionStorage
+    useEffect(() => {
+        try {
+            console.log('🚀 Carregando favoritos do SessionStorage...');
+
+            const favoritosSalvos = sessionStorage.getItem('favoritos');
+
+            if (favoritosSalvos) {
+                const dados = JSON.parse(favoritosSalvos);
+
+                setFavorites(dados);
+
+                console.log(
+                    '📂 Favoritos carregados:',
+                    dados.length,
+                    'personagens'
+                );
+            } else {
+                console.log('📭 Nenhum favorito encontrado');
+            }
+        } catch (error) {
+            console.error(
+                '❌ Erro ao carregar favoritos:',
+                error.message
+            );
+        }
+    }, []);
+
+    // ❤️ Adicionar ou remover favorito
     function handleFavorite(character) {
-        const alreadyFavorite = favorites.some((favorite) => favorite.id === character.id);
+        const alreadyFavorite = favorites.some(
+            (favorite) => favorite.id === character.id
+        );
+
         const nextFavorites = alreadyFavorite
-            ? favorites.filter((favorite) => favorite.id !== character.id)
+            ? favorites.filter(
+                (favorite) => favorite.id !== character.id
+            )
             : [...favorites, character];
 
+        // 🔄 Atualizar o estado
         setFavorites(nextFavorites);
+
+        // 💾 Atualizar o SessionStorage
+        sessionStorage.setItem(
+            'favoritos',
+            JSON.stringify(nextFavorites)
+        );
+
+        console.log(
+            '💾 Favoritos salvos no SessionStorage:',
+            nextFavorites.length
+        );
+
+        // 🔔 Mostrar mensagem
         toast.success(
             alreadyFavorite
                 ? `${character.name} foi removido dos favoritos.`
-                : `${character.name} foi adicionado aos favoritos!`,
+                : `${character.name} foi adicionado aos favoritos!`
         );
     }
 
@@ -75,8 +130,12 @@ export default function Personagens() {
         <main className={styles.container}>
             <header className={styles.header}>
                 <p>📜 Arquivos de Hogwarts</p>
+
                 <h1>Personagens</h1>
-                <span>{characters.length} personagens encontrados</span>
+
+                <span>
+                    {characters.length} personagens encontrados
+                </span>
             </header>
 
             <section className={styles.grid}>
@@ -86,7 +145,9 @@ export default function Personagens() {
                         character={character}
                         onSelect={setSelectedCharacter}
                         onFavorite={handleFavorite}
-                        isFavorite={favorites.some((favorite) => favorite.id === character.id)}
+                        isFavorite={favorites.some(
+                            (favorite) => favorite.id === character.id
+                        )}
                     />
                 ))}
             </section>

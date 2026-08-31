@@ -1,7 +1,10 @@
 .container {
     min-height: 100vh;
     padding: 60px 6%;
-    background: #0b0b12;
+    background: var(--background);
+    color: var(--foreground);
+
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
 .header {
@@ -10,7 +13,7 @@
 }
 
 .header p {
-    color: #d4af37;
+    color: var(--gold);
     margin-bottom: 10px;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -18,18 +21,19 @@
 
 .header h1 {
     font-family: Georgia, serif;
-    color: #fff;
+    color: var(--foreground);
     font-size: clamp(2.5rem, 6vw, 4rem);
     margin-bottom: 10px;
 }
 
 .header span {
-    color: #888;
+    color: var(--text-secondary);
 }
 
 .grid {
     max-width: 1400px;
     margin: auto;
+
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 25px;
@@ -38,16 +42,18 @@
 .loading,
 .error {
     min-height: 70vh;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
     text-align: center;
     gap: 20px;
 }
 
 .loading p {
-    color: #d4af37;
+    color: var(--gold);
 }
 
 .error h2 {
@@ -55,15 +61,18 @@
 }
 
 .error p {
-    color: #aaa;
+    color: var(--text-secondary);
 }
 
 .spinner {
     width: 55px;
     height: 55px;
-    border: 5px solid #292936;
-    border-top-color: #d4af37;
+
+    border: 5px solid var(--border);
+    border-top-color: var(--gold);
+
     border-radius: 50%;
+
     animation: spin 1s linear infinite;
 }
 

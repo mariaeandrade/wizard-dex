@@ -1,0 +1,25 @@
+.button {
+    border: 1px solid var(--border);
+    background: var(--card-background);
+    color: var(--foreground);
+
+    padding: 9px 14px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        border 0.3s ease,
+        transform 0.2s ease;
+}
+
+.button:hover {
+    transform: translateY(-2px);
+    border-color: var(--gold);
+}

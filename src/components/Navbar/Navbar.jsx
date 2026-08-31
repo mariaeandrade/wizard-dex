@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import styles from './Navbar.module.css';
+import ThemeToggle from '@/components/Theme/Theme';
 
 export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -13,7 +14,10 @@ export default function Navbar() {
                 🪄 Wizard<span>Dex</span>
             </Link>
 
-            <button className={styles.menuButton} onClick={() => setMenuOpen(!menuOpen)}>
+            <button
+                className={styles.menuButton}
+                onClick={() => setMenuOpen(!menuOpen)}
+            >
                 ☰
             </button>
 
@@ -29,6 +33,13 @@ export default function Navbar() {
                 <Link href="/sobre" onClick={() => setMenuOpen(false)}>
                     Sobre
                 </Link>
+
+                <Link href="/favoritos" onClick={() => setMenuOpen(false)}>
+                    Favoritos
+                </Link>
+
+
+                <ThemeToggle />
             </div>
         </nav>
     );

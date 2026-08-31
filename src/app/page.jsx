@@ -10,7 +10,7 @@ export default function Home() {
                 <div className={styles.heroContent}>
                     <p className={styles.welcome}>Seja bem-vindo à WizardDex</p>
                     <h1>WizardDex</h1>
-                    <p className={styles.texto-welcome}>
+                    <p className={styles.textowelcome}>
                         Uma enciclopédia digital dos personagens do universo Harry Potter, criada
                         para explorar histórias, casas e curiosidades com uma interface moderna.
                     </p>

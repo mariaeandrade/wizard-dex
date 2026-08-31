@@ -1,5 +1,35 @@
 @import "tailwindcss";
 
+:root {
+    --background: #f5f5f5;
+    --foreground: #171717;
+    --card-background: #ffffff;
+    --border: #dddddd;
+    --text-secondary: #555555;
+    --gold: #a27b00;
+    --input-background: #ffffff;
+}
+
+html.dark {
+    --background: #0f0f18;
+    --foreground: #ffffff;
+    --card-background: #171722;
+    --border: #292936;
+    --text-secondary: #bbbbbb;
+    --gold: #d4af37;
+    --input-background: #22222e;
+}
+
+html.light {
+    --background: #f5f5f5;
+    --foreground: #171717;
+    --card-background: #ffffff;
+    --border: #dddddd;
+    --text-secondary: #555555;
+    --gold: #a27b00;
+    --input-background: #ffffff;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -8,4 +38,14 @@ html,
 body {
     margin: 0;
     padding: 0;
+    min-height: 100%;
+}
+
+body {
+    background: var(--background);
+    color: var(--foreground);
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
 }

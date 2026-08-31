@@ -1,19 +1,32 @@
 .notFound {
     min-height: calc(100vh - 70px);
+
     display: flex;
     justify-content: center;
     align-items: center;
+
     text-align: center;
+
     padding: 30px;
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../../public/images/banner.jpg')
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.6),
+            rgba(0, 0, 0, 0.6)
+        ),
+        url('../../public/images/banner.jpg');
 }
 
 .notFound div {
     max-width: 600px;
+
     padding: 40px;
-    background: #171722;
-    border: 1px solid #292936;
+
+    background: var(--card-background);
+
+    border: 1px solid var(--border);
     border-radius: 20px;
+
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
 }
 
@@ -23,27 +36,36 @@
 
 .notFound h1 {
     font-size: 7rem;
-    color: #d4af37;
+
+    color: var(--gold);
+
     font-family: Georgia, serif;
+
     margin: 10px 0;
 }
 
 .notFound h2 {
     font-size: 2rem;
+
     margin-bottom: 15px;
-    color: #fff;
+
+    color: var(--foreground);
 }
 
 .notFound p {
-    color: #aaa;
+    color: var(--text-secondary);
     margin-bottom: 30px;
 }
 
 .homeButton {
     display: inline-block;
-    background: #d4af37;
+
+    background: var(--gold);
     color: #111;
+
     padding: 14px 25px;
+
     border-radius: 8px;
+
     font-weight: bold;
 }
