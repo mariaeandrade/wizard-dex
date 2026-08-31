@@ -26,8 +26,8 @@ export default function ThemeToggle() {
         // 🔄 Atualizar estado
         setTema(novoTema);
 
-        console.log('🎨 Tema alterado para:', novoTema);
-        console.log('🍪 Cookie tema atualizado');
+        console.log('Tema alterado para:', novoTema);
+        console.log('Cookie tema atualizado');
     }
 
     return (

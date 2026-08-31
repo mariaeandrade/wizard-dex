@@ -17,7 +17,6 @@ export default function Personagens() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
 
-    // 📖 Carregar personagens da API
     useEffect(() => {
         async function getCharacters() {
             try {
@@ -42,10 +41,9 @@ export default function Personagens() {
         getCharacters();
     }, []);
 
-    // 💾 Carregar favoritos do SessionStorage
     useEffect(() => {
         try {
-            console.log('🚀 Carregando favoritos do SessionStorage...');
+            console.log(' Carregando favoritos do SessionStorage...');
 
             const favoritosSalvos = sessionStorage.getItem('favoritos');
 
@@ -55,22 +53,21 @@ export default function Personagens() {
                 setFavorites(dados);
 
                 console.log(
-                    '📂 Favoritos carregados:',
+                    ' Favoritos carregados:',
                     dados.length,
                     'personagens'
                 );
             } else {
-                console.log('📭 Nenhum favorito encontrado');
+                console.log(' Nenhum favorito encontrado');
             }
         } catch (error) {
             console.error(
-                '❌ Erro ao carregar favoritos:',
+                'Erro ao carregar favoritos:',
                 error.message
             );
         }
     }, []);
 
-    // ❤️ Adicionar ou remover favorito
     function handleFavorite(character) {
         const alreadyFavorite = favorites.some(
             (favorite) => favorite.id === character.id
@@ -82,21 +79,18 @@ export default function Personagens() {
             )
             : [...favorites, character];
 
-        // 🔄 Atualizar o estado
         setFavorites(nextFavorites);
 
-        // 💾 Atualizar o SessionStorage
         sessionStorage.setItem(
             'favoritos',
             JSON.stringify(nextFavorites)
         );
 
         console.log(
-            '💾 Favoritos salvos no SessionStorage:',
+            ' Favoritos salvos no SessionStorage:',
             nextFavorites.length
         );
 
-        // 🔔 Mostrar mensagem
         toast.success(
             alreadyFavorite
                 ? `${character.name} foi removido dos favoritos.`
@@ -119,7 +113,7 @@ export default function Personagens() {
         return (
             <main className={styles.container}>
                 <div className={styles.error}>
-                    <h2>⚠️ Ocorreu um problema</h2>
+                    <h2>Ocorreu um problema</h2>
                     <p>{error}</p>
                 </div>
             </main>
@@ -129,7 +123,7 @@ export default function Personagens() {
     return (
         <main className={styles.container}>
             <header className={styles.header}>
-                <p>📜 Arquivos de Hogwarts</p>
+                <p>Arquivos de Hogwarts</p>
 
                 <h1>Personagens</h1>
 

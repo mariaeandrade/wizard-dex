@@ -7,12 +7,12 @@ export default function Sobre() {
     return (
         <main className={styles.container}>
             <section className={styles.header}>
-                <p>🪄 Conheça o projeto</p>
+                <p>Conheça o projeto</p>
                 <h1>Sobre a WizardDex</h1>
             </section>
 
             <section className={styles.card}>
-                <h2>🎓 Informações da turma</h2>
+                <h2>Informações da turma</h2>
                 <div className={styles.info}>
                     <p>
                         <strong>Turma:</strong> 2TDS1
@@ -27,16 +27,16 @@ export default function Sobre() {
             </section>
 
             <section className={styles.card}>
-                <h2>🧙 Integrantes</h2>
+                <h2> Integrantes</h2>
                 <ul>
                     {integrantes.map((integrante, index) => (
-                        <li key={index}>✨ {integrante}</li>
+                        <li key={index}>{integrante}</li>
                     ))}
                 </ul>
             </section>
 
             <section className={styles.card}>
-                <h2>📚 Sobre o desenvolvimento</h2>
+                <h2>Sobre o desenvolvimento</h2>
                 <p>
                     A WizardDex é um projeto acadêmico desenvolvido com Next.js, React, Axios e CSS.
                     A aplicação consome uma API pública para apresentar informações dos personagens

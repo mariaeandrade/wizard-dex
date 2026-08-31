@@ -11,10 +11,9 @@ export default function Favoritos() {
     const [favorites, setFavorites] = useState([]);
     const [selectedCharacter, setSelectedCharacter] = useState(null);
 
-    // 📖 Carregar favoritos do SessionStorage
     useEffect(() => {
         try {
-            console.log('🚀 Carregando favoritos...');
+            console.log('Carregando favoritos...');
 
             const favoritosSalvos = sessionStorage.getItem('favoritos');
 
@@ -28,29 +27,27 @@ export default function Favoritos() {
                     dados.length
                 );
             } else {
-                console.log('📭 Nenhum favorito encontrado');
+                console.log(' Nenhum favorito encontrado');
             }
         } catch (error) {
             console.error(
-                '❌ Erro ao carregar favoritos:',
+                'Erro ao carregar favoritos:',
                 error.message
             );
         }
     }, []);
 
-    // 🗑️ Remover favorito
+
     function handleFavorite(character) {
         const novosFavoritos = favorites.filter(
             (favorite) => favorite.id !== character.id
         );
 
-        // 💾 Atualizar SessionStorage
         sessionStorage.setItem(
             'favoritos',
             JSON.stringify(novosFavoritos)
         );
 
-        // 🔄 Atualizar a interface
         setFavorites(novosFavoritos);
 
         console.log(
@@ -63,7 +60,7 @@ export default function Favoritos() {
         <main className={styles.container}>
 
             <header className={styles.header}>
-                <p>❤️ Sua coleção</p>
+                <p> Sua coleção</p>
 
                 <h1>Personagens Favoritos</h1>
 
@@ -85,7 +82,7 @@ export default function Favoritos() {
                     </p>
 
                     <a href="/personagens">
-                        📚 Ver personagens
+                        Ver personagens
                     </a>
                 </section>
             ) : (
